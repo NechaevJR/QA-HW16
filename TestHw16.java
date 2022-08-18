@@ -33,7 +33,7 @@ public class TestHw16 {
 
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
-        String text = driver.findElement(By.id("flash")).getText();
+        String text = driver.findElement(By.id("flash-messages")).getText();
         Assert.assertEquals(text, "Your password is invalid!", "test");
 //        String text = driver.findElement(By.tagName("h2")).getText();
 //        Assert.assertEquals(text, "Secure Area", "Test suces");
