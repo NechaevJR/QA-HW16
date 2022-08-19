@@ -1,14 +1,12 @@
-package ua.hillel.hw16;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+        import org.openqa.selenium.By;
+        import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.WebElement;
+        import org.openqa.selenium.chrome.ChromeDriver;
+        import org.testng.Assert;
+        import org.testng.annotations.AfterClass;
+        import org.testng.annotations.BeforeClass;
+        import org.testng.annotations.Test;
 
 public class TestHw16 {
     WebDriver driver;
@@ -29,22 +27,16 @@ public class TestHw16 {
 
         WebElement userPasswordInput = driver.findElement(By.xpath("//input[@type='password']"));
         userPasswordInput.clear();
-        userPasswordInput.sendKeys("SuperSecretPassword!" + "df");
+        userPasswordInput.sendKeys("SuperSecretPassword!");
 
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         String text = driver.findElement(By.id("flash-messages")).getText();
-        Assert.assertEquals(text, "Your password is invalid!", "test");
-//        String text = driver.findElement(By.tagName("h2")).getText();
-//        Assert.assertEquals(text, "Secure Area", "Test suces");
-
-
-
+        if (text.contains("Secure Area"));
+        {
+            System.out.println("passed");
+        }
         driver.quit();
     }
 
-    @AfterClass(alwaysRun = true)
-    public void closeBrows(){
-        driver.quit();
     }
-}
